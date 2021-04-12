@@ -10,6 +10,7 @@ AllCops:
     - 'node_modules/**/*'
     - 'tmp/**/*'
     - 'vendor/**/*'
+    - 'config/**/*'
   DisplayStyleGuide: true
   ExtraDetails: true
   NewCops: enable
