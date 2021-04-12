@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
 
-  VALID_USERNAME_REGEX = /\A^[a-zA-Z0-9]+\z/
+  VALID_USERNAME_REGEX = /\A^\w+\z/
 
   validates :username, presence: true, length: { maximum: 255 }, uniqueness: { case_sensitive: false }, format: { with: VALID_USERNAME_REGEX } # rubocop:disable Layout/LineLength
   validates :password, presence: true, length: { minimum: 6 }
