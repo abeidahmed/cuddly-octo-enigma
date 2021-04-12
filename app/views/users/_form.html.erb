@@ -1,0 +1,15 @@
+<%= form_with model: @user, data: { remote: true, controller: "hotwire", action: "ajax:error->hotwire#showErrors" } do |form| %>
+  <div>
+    <%= form.label :username, class: "form-label" %>
+    <%= form.text_field :username, class: "form-control" %>
+    <%= render "shared/form_error", error_field: "username" %>
+  </div>
+  <div class="mt-4">
+    <%= form.label :password, "Password (min. 6 characters)", class: "form-label" %>
+    <%= form.password_field :password, class: "form-control" %>
+    <%= render "shared/form_error", error_field: "password" %>
+  </div>
+  <div class="mt-4">
+    <%= form.submit "Create account", class: "btn btn-primary w-full" %>
+  </div>
+<% end %>
