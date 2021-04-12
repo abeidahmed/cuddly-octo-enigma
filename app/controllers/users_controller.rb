@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     user = User.new(user_params)
 
     if user.save
-      cookies.permanent.signed[:auth_token] = user.auth_token
+      sign_in(user)
       redirect_to root_path
     else
       render json: { errors: user.errors }, status: :unprocessable_entity
