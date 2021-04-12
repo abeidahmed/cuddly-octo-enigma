@@ -1,7 +1,7 @@
 <%= form_with url: sessions_path, data: { remote: true, controller: "hotwire", action: "ajax:error->hotwire#showErrors" } do |form| %>
   <div>
     <%= form.label :username, class: "form-label" %>
-    <%= form.email_field :username, class: "form-control" %>
+    <%= form.text_field :username, class: "form-control" %>
   </div>
   <div class="mt-4">
     <%= form.label :password, class: "form-label" %>
