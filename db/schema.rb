@@ -19,8 +19,10 @@ ActiveRecord::Schema.define(version: 2021_04_12_050517) do
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "username", default: "", null: false
     t.string "password_digest", default: "", null: false
+    t.string "auth_token", default: "", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["auth_token"], name: "index_users_on_auth_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 

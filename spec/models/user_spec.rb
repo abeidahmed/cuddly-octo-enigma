@@ -35,5 +35,12 @@ RSpec.describe User, type: :model do
 
       expect(user.username).to eq("hello")
     end
+
+    it "generates a new auth token" do
+      user.auth_token = ""
+      user.save!
+
+      expect(user.auth_token).to be_present
+    end
   end
 end

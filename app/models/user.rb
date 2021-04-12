@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_secure_password
+  has_secure_token :auth_token
 
   VALID_USERNAME_REGEX = /\A^\w+\z/
 
