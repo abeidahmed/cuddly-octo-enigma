@@ -1,11 +1,13 @@
 class ProjectsController < ApplicationController
-  def new; end
+  def new
+    @project = Project.new
+  end
 
   def create
     project = Current.user.projects.build(project_params)
 
     if project.save
-      # do
+      redirect_to new_project_article_path(project)
     else
       render json: { errors: project.errors }, status: :unprocessable_entity
     end
