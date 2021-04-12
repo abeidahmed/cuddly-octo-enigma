@@ -14,10 +14,6 @@ module.exports = {
       },
     },
   },
-  variants: {
-    extend: {
-      boxShadow: ["focus-within"],
-    },
-  },
+  variants: {},
   plugins: [require("@tailwindcss/forms")],
 };

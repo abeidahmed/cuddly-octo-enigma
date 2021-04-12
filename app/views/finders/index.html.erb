@@ -1,1 +1,30 @@
-hello from finders
+<main class="min-h-screen bg-gray-100">
+  <div class="flex justify-center py-10 max-w-lg w-full mx-auto">
+    <div class="w-full">
+      <h1 class="text-center font-semibold text-gray-600 text-xl">Get your questions answered</h1>
+      <div class="mt-6 relative rounded-3xl">
+        <div class="relative">
+          <label for="finder-input" class="sr-only">Search</label>
+          <input type="text" id="finder-input" class="py-3 pr-5 pl-12 w-full block rounded-3xl border-gray-300 focus:ring-0 focus:border-gray-300">
+          <div class="absolute left-0 inset-y-0 flex items-center ml-4">
+            <%= heroicon "search", class: "text-gray-400" %>
+          </div>
+        </div>
+        <ul class="mt-2 divide-y rounded absolute bg-white w-full py-2 shadow-md border">
+          <li class="flex items-center space-x-3 px-4 py-2 hover:bg-gray-100">
+            <%= heroicon "search", size: 20, class: "text-gray-400" %>
+            <span>Hello world</span>
+          </li>
+          <li class="flex items-center space-x-3 px-4 py-2 hover:bg-gray-100">
+            <%= heroicon "search", size: 20, class: "text-gray-400" %>
+            <span>Hello world</span>
+          </li>
+          <li class="flex items-center space-x-3 px-4 py-2 hover:bg-gray-100">
+            <%= heroicon "search", size: 20, class: "text-gray-400" %>
+            <span>Hello world</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</main>
