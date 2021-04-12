@@ -1,0 +1,12 @@
+<%= form_with model: [@project, Article.new], data: { remote: true, controller: "hotwire", action: "ajax:error->hotwire#showErrors" } do |form| %>
+  <div class="flex items-center w-full space-x-4">
+    <div class="flex-1">
+      <%= form.label :title, class: "sr-only" %>
+      <%= form.text_field :title, class: "form-control", placeholder: "Your article title", autocomplete: "off" %>
+    </div>
+    <div>
+      <%= form.submit "Create article", class: "btn btn-primary" %>
+    </div>
+  </div>
+  <%= render "shared/form_error", error_field: "title" %>
+<% end %>

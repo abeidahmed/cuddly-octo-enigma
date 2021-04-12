@@ -1,7 +1,6 @@
 class ArticlesController < ApplicationController
   def index
     @project = Project.find(params[:project_id])
-    @article = @project.articles.build
   end
 
   def create
