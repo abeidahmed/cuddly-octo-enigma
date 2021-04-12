@@ -7,7 +7,7 @@ class ProjectsController < ApplicationController
     project = Current.user.projects.build(project_params)
 
     if project.save
-      redirect_to new_project_article_path(project)
+      redirect_to project_articles_path(project)
     else
       render json: { errors: project.errors }, status: :unprocessable_entity
     end

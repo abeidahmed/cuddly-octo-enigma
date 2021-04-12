@@ -1,12 +1,15 @@
 class ArticlesController < ApplicationController
-  def new; end
+  def index
+    @project = Project.find(params[:project_id])
+    @article = @project.articles.build
+  end
 
   def create
     project = Project.find(params[:project_id])
     article = project.articles.build(article_params.merge({ user: Current.user }))
 
     if article.save
-      # do
+      redirect_to project_articles_path(project)
     else
       render json: { errors: article.errors }, status: :unprocessable_entity
     end

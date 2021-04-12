@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :sessions, only: %i[new create]
 
   resources :projects, only: %i[new create] do
-    resources :articles, only: %i[new create]
+    resources :articles, only: %i[index create]
   end
 
   resources :finders, only: %i[index]

@@ -7,6 +7,6 @@ RSpec.describe "ProjectCreates", type: :feature do
     fill_in "Name", with: "Foo bar"
     click_button "Create project"
 
-    expect(page).to have_current_path(new_project_article_path(Project.first))
+    expect(page).to have_current_path(project_articles_path(Project.first))
   end
 end
