@@ -14,5 +14,11 @@ RSpec.describe "Sessions", type: :request do
 
       expect(signed_cookie[:auth_token]).to be_blank
     end
+
+    it "returns error if request is invalid" do
+      post sessions_path, params: { username: "foobar", password: "secret" }
+
+      expect(json.dig(:errors, :invalid)).to be_present
+    end
   end
 end

@@ -19,5 +19,11 @@ RSpec.describe "Users", type: :request do
 
       expect(signed_cookie[:auth_token]).to be_blank
     end
+
+    it "returns error if request is invalid" do
+      post users_path, params: { user: attributes_for(:user).except(:auth_token, :username) }
+
+      expect(json.dig(:errors, :username)).to be_present
+    end
   end
 end
