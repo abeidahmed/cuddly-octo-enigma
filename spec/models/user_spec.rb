@@ -5,6 +5,8 @@ RSpec.describe User, type: :model do
 
   describe "associations" do
     it { is_expected.to have_many(:projects).dependent(:destroy) }
+
+    it { is_expected.to have_many(:articles).dependent(:destroy) }
   end
 
   describe "validations" do
