@@ -2,12 +2,8 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 const colors = require("tailwindcss/colors");
 
 module.exports = {
-  mode: "jit"
-  purge: [
-    "./app/views/**/*.html.erb",
-    "./app/helpers/**/*.rb",
-  ],
-  darkMode: false
+  purge: ["./app/views/**/*.html.erb"],
+  darkMode: false,
   theme: {
     extend: {
       fontFamily: {
@@ -18,10 +14,6 @@ module.exports = {
       },
     },
   },
-  variants: {
-    extend: {},
-  },
-  plugins: [
-    require("@tailwindcss/forms"),
-  ],
-}
+  variants: {},
+  plugins: [require("@tailwindcss/forms")],
+};
