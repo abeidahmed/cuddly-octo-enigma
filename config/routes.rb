@@ -3,4 +3,5 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[create]
   resources :sessions, only: %i[new create]
+  resources :finders, only: %i[index]
 end
