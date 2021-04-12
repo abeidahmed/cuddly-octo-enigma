@@ -1,3 +1,10 @@
+@layer base {
+  button,
+  input[type="submit"] {
+    cursor: pointer;
+  }
+}
+
 @layer components {
   .btn {
     @apply no-focus block px-3 py-2 text-center text-sm font-medium leading-5 whitespace-nowrap border border-transparent rounded-lg;
