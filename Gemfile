@@ -14,6 +14,7 @@ gem "webpacker", "~> 5.0"
 
 group :development, :test do
   gem "byebug", platforms: %i[mri mingw x64_mingw]
+  gem "capybara", "~> 3.35", ">= 3.35.3"
   gem "factory_bot_rails", "~> 6.1"
   gem "rspec-rails", "~> 5.0", ">= 5.0.1"
   gem "shoulda-matchers", "~> 4.5", ">= 4.5.1"
