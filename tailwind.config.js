@@ -1,6 +1,9 @@
 module.exports = {
   mode: "jit"
-  purge: [],
+  purge: [
+    "./app/views/**/*.html.erb",
+    "./app/helpers/**/*.rb",
+  ],
   darkMode: false
   theme: {
     extend: {},
