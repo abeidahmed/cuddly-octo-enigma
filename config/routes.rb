@@ -6,5 +6,6 @@ Rails.application.routes.draw do
 
   resources :projects, only: %i[new create show] do
     resources :articles, only: %i[index create]
+    resources :searches, only: %i[index]
   end
 end

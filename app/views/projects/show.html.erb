@@ -4,15 +4,15 @@
       <h1 class="text-center font-semibold text-gray-600 text-xl">
         Search <%= @project.name %> for your questions
       </h1>
-      <div class="mt-6 rounded-3xl">
+      <div data-controller="search" data-search-url-value="<%= project_searches_path(@project) %>" class="mt-6 rounded-3xl">
         <div class="relative">
           <label for="finder-input" class="sr-only">Search</label>
-          <input type="text" id="finder-input" class="py-3 pr-5 pl-12 w-full block rounded-3xl border-gray-300 focus:ring-0 focus:border-gray-300">
+          <input type="text" id="finder-input" data-action="search#fetchSuggestions" class="py-3 pr-5 pl-12 w-full block rounded-3xl border-gray-300 focus:ring-0 focus:border-gray-300">
           <div class="absolute left-0 inset-y-0 flex items-center ml-4">
             <%= heroicon "search", class: "text-gray-400" %>
           </div>
         </div>
-        <ul class="bg-white mt-5 rounded-lg shadow divide-y">
+        <ul data-search-target="result" class="bg-white mt-5 rounded-lg shadow divide-y">
           <%= render @project.articles %>
         </ul>
       </div>
