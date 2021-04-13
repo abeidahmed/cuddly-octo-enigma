@@ -13,20 +13,9 @@ class Project
     def deletable?(string, with_string:)
       return false if string.length == with_string.length
 
-      arr = common_words_among(string, with_string)
-      if string.length > with_string.length
-        lowercased_string_array(string).all? { |ele| arr.include?(ele) }
-      else
-        arr.all? { |ele| lowercased_string_array(with_string).include?(ele) }
-      end
-    end
-
-    def lowercased_string_array(string)
-      string.split.map(&:downcase)
-    end
-
-    def common_words_among(first, second)
-      lowercased_string_array(second).map { |word| first.downcase.scan(word) }.flatten
+      stripped_string = string.downcase.delete("^a-zA-Z")
+      stripped_with_string = with_string.downcase.delete("^a-zA-Z")
+      stripped_with_string.start_with?(stripped_string)
     end
   end
 end

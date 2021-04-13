@@ -47,7 +47,7 @@ RSpec.describe Project::Suggestable do
       )
     end
 
-    xit "tunisia" do
+    it "works if the suggestions are not related" do
       project = create(:project)
       create(:search_suggestion, project: project, term: "tunisia is good")
       project.track_term_for("tunisia is cool but ok")
