@@ -5,6 +5,7 @@
   <div class="flex items-center space-x-3">
     <% if Current.user %>
       <%= yield %>
+      <%= link_to "Logout", signout_path, method: :delete, class: "btn btn-default" %>
     <% else %>
       <%= link_to "Login", new_session_path, class: "btn btn-default" %>
       <%= link_to "Sign up", new_user_path, class: "btn btn-primary" %>
