@@ -1,8 +1,8 @@
 class Project
   module Suggestable
     def track_term_for(query)
-      previous_suggestion = SearchSuggestion.where(project: self).last
-      previous_suggestion.destroy if previous_suggestion && deletable?(previous_suggestion.term, by: query)
+      last_suggestion = SearchSuggestion.where(project: self).last
+      last_suggestion.destroy if last_suggestion && deletable?(last_suggestion.term, with_string: query)
 
       matching_terms = SearchSuggestion.where("term iLIKE :query", query: "%#{query}%").where(project: self)
       SearchSuggestion.create!(term: query, project: self) if matching_terms.count.zero?
@@ -10,20 +10,23 @@ class Project
 
     private
 
-    def deletable?(string, by:) # rubocop:disable Metrics/PerceivedComplexity, Metrics/CyclomaticComplexity
-      return false if string.length == by.length
+    def deletable?(string, with_string:)
+      return false if string.length == with_string.length
 
-      arr = []
-      by.split.map(&:downcase).each do |word|
-        arr << string.downcase.scan(word)
-      end
-      arr = arr.flatten.map(&:downcase)
-
-      if string.length > by.length
-        string.split.map(&:downcase).all? { |ele| arr.include?(ele.downcase) }
+      arr = common_words_among(string, with_string)
+      if string.length > with_string.length
+        lowercased_string_array(string).all? { |ele| arr.include?(ele) }
       else
-        arr.all? { |ele| by.split.map(&:downcase).include?(ele) }
+        arr.all? { |ele| lowercased_string_array(with_string).include?(ele) }
       end
+    end
+
+    def lowercased_string_array(string)
+      string.split.map(&:downcase)
+    end
+
+    def common_words_among(first, second)
+      lowercased_string_array(second).map { |word| first.downcase.scan(word) }.flatten
     end
   end
 end
