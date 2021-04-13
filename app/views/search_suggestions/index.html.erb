@@ -1,0 +1,14 @@
+<%= render "headers/default" %>
+
+<main class="bg-gray-100" style="min-height: calc(100vh - 56px);">
+  <div class="flex justify-center py-10 max-w-lg w-full mx-auto">
+    <div class="w-full">
+      <h1 class="text-center font-semibold text-gray-600 text-xl">
+        Knowledge base suggestions for <%= @project.name %>
+      </h1>
+      <ul data-search-target="result" class="bg-white mt-5 rounded-lg shadow divide-y">
+        <%= render @search_suggestions %>
+      </ul>
+    </div>
+  </div>
+</main>
