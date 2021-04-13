@@ -1,4 +1,6 @@
-<%= render "headers/default" %>
+<%= render "headers/default" do %>
+  <%= link_to "Search engine", project_path(@project), class: "btn btn-primary" %>
+<% end %>
 
 <main class="bg-gray-100" style="min-height: calc(100vh - 56px);">
   <div class="flex justify-center py-10 max-w-lg w-full mx-auto">
