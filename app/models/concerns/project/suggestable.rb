@@ -8,6 +8,8 @@ class Project
       SearchSuggestion.create!(term: query, project: self) if matching_terms.count.zero?
     end
 
+    private
+
     def deletable?(string, by:) # rubocop:disable Metrics/PerceivedComplexity, Metrics/CyclomaticComplexity
       return false if string.length == by.length
 
