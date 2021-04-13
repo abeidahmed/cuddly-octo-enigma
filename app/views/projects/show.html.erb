@@ -1,5 +1,6 @@
 <%= render "headers/default" do %>
-  <%= link_to "Analytics for GitHub", "#", class: "btn btn-primary" %>
+  <%= link_to "Analytics for #{@project.name}", "#", class: "btn btn-primary" %>
+  <%= link_to "New article", project_articles_path(@project), class: "btn btn-default" %>
 <% end %>
 
 <main class="bg-gray-100" style="min-height: calc(100vh - 56px);">
