@@ -38,13 +38,26 @@ RSpec.describe SearchSuggestion, type: :model do
       expect(project.search_suggestions.pluck(:term)).to match_array(["where is Finland?"])
     end
 
-    it "tracks inconsistent words and persist the relevant ones" do
+    it "tracks for inconsistencies and stores the correct query" do
       project = create(:project)
       create(:search_suggestion, project: project, term: "How is")
       create(:search_suggestion, project: project, term: "Howis emil hajric")
       described_class.track_term_for("How is emil hajric doing?", project)
 
       expect(project.search_suggestions.pluck(:term)).to match_array(["How is emil hajric doing?"])
+    end
+
+    it "does not destroy the previous record if there is a change of only one word" do
+      project = create(:project)
+      create(:search_suggestion, project: project, term: "Is it raining outside?")
+      described_class.track_term_for("Is it raining inside?", project)
+
+      expect(project.search_suggestions.pluck(:term)).to match_array(
+        [
+          "Is it raining outside?",
+          "Is it raining inside?",
+        ],
+      )
     end
   end
 end
