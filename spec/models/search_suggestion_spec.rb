@@ -59,5 +59,18 @@ RSpec.describe SearchSuggestion, type: :model do
         ],
       )
     end
+
+    it "tunisia" do
+      project = create(:project)
+      create(:search_suggestion, project: project, term: "tunisia is good")
+      described_class.track_term_for("tunisia is bad but ok", project)
+
+      expect(project.search_suggestions.pluck(:term)).to match_array(
+        [
+          "tunisia is good",
+          "tunisia is bad but ok",
+        ],
+      )
+    end
   end
 end

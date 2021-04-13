@@ -4,12 +4,11 @@ class SearchSuggestion < ApplicationRecord
   validates :term, presence: true, uniqueness: { scope: :project_id, case_sensitive: false }
 
   def self.track_term_for(query, project)
-    where(project: project).find_each do |suggestion|
-      next if suggestion.term.length >= query.to_s.length
+    existing_terms = where(project: project).pluck(:term)
+    existing_terms.each do |term|
+      next if term.length > query.length
 
-      query.split.map(&:downcase).each do |word|
-        suggestion.destroy if suggestion.term.downcase.scan(word).length.positive?
-      end
+      where(term: existing_terms).destroy_all if query.downcase.include?(term.downcase)
     end
 
     matching_terms = where("term iLIKE :query", query: "%#{query}%").where(project: project)
