@@ -9,13 +9,13 @@ class Project
     end
 
     def deletable?(string, by:) # rubocop:disable Metrics/PerceivedComplexity, Metrics/CyclomaticComplexity
+      return false if string.length == by.length
+
       arr = []
       by.split.map(&:downcase).each do |word|
         arr << string.downcase.scan(word)
       end
       arr = arr.flatten.map(&:downcase)
-
-      return false if string.length == by.length
 
       if string.length > by.length
         string.split.map(&:downcase).all? { |ele| arr.include?(ele.downcase) }
