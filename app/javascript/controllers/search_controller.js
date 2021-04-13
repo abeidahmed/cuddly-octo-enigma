@@ -13,6 +13,6 @@ export default class extends Controller {
       const res = await fetch(`${this.urlValue}?query=${event.target.value}`);
       const data = await res.text();
       this.resultTarget.innerHTML = data;
-    }, 300);
+    }, 700);
   }
 }
