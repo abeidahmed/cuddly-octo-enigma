@@ -1,13 +1,7 @@
-<header class="h-14 bg-white border-b px-4 z-10 flex items-center justify-end">
-  <div class="flex items-center space-x-3">
-    <% if Current.user %>
-      <%= link_to "Logout", signout_path, method: :delete, class: "btn btn-default" %>
-    <% else %>
-      <%= link_to "Login", new_session_path, class: "btn btn-default" %>
-      <%= link_to "Sign up", new_user_path, class: "btn btn-primary" %>
-    <% end %>
-  </div>
-</header>
+<%= render "headers/default" do %>
+  <%= link_to "Logout", signout_path, method: :delete, class: "btn btn-default" %>
+<% end %>
+
 <main class="py-12 px-4 sm:px-6 lg:px-8 bg-gray-100" style="min-height: calc(100vh - 56px)">
   <div class="max-w-2xl mx-auto">
     <h1 class="font-medium text-lg text-center">Visit the knowledge base and search for your answers</h1>
