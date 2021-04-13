@@ -4,10 +4,9 @@ class Article < ApplicationRecord
 
   validates :title, presence: true
 
-  def self.search(query, belonging_to:)
+  def self.search(query)
     return all if query.blank?
 
-    SearchSuggestion.track_term_for(query, belonging_to)
     where("title iLIKE :query", query: "%#{query}%")
   end
 end
