@@ -1,5 +1,9 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe SearchSuggestion, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  subject(:search_suggestion) { build(:search_suggestion) }
+
+  describe "associations" do
+    it { is_expected.to belong_to(:project) }
+  end
 end

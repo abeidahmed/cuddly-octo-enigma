@@ -7,6 +7,8 @@ RSpec.describe Project, type: :model do
     it { is_expected.to belong_to(:user) }
 
     it { is_expected.to have_many(:articles).dependent(:destroy) }
+
+    it { is_expected.to have_many(:search_suggestions).dependent(:destroy) }
   end
 
   describe "validations" do
