@@ -21,4 +21,13 @@ RSpec.describe "Sessions", type: :request do
       expect(json.dig(:errors, :invalid)).to be_present
     end
   end
+
+  describe "#destroy" do
+    it "deletes the auth_token cookie" do
+      sign_in
+      delete signout_path
+
+      expect(cookies[:auth_token]).to be_blank
+    end
+  end
 end
