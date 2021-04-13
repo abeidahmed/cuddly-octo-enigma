@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
 
     if auth.authenticated?
       sign_in(auth.user)
-      redirect_to new_project_path
+      redirect_to root_path
     else
       render json: { errors: { invalid: ["credentials"] } }, status: :unprocessable_entity
     end
