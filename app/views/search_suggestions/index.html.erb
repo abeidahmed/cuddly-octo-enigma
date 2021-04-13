@@ -2,11 +2,11 @@
   <%= link_to "Search engine", project_path(@project), class: "btn btn-primary" %>
 <% end %>
 
-<main class="bg-gray-100" style="min-height: calc(100vh - 56px);">
+<main class="bg-gray-100 px-4" style="min-height: calc(100vh - 56px);">
   <div class="flex justify-center py-10 max-w-lg w-full mx-auto">
     <div class="w-full">
       <h1 class="text-center font-semibold text-gray-600 text-xl">
-        Knowledge base suggestions for <%= @project.name %>
+        See what people are searching for at <%= @project.name %>
       </h1>
       <ul data-search-target="result" class="bg-white mt-5 rounded-lg shadow divide-y">
         <%= render @search_suggestions %>
