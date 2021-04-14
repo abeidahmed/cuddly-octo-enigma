@@ -12,6 +12,10 @@
 - Run `rails s` and `ruby ./bin/webpack-dev-server` to start the server
 - Visit `localhost:3000`
 
+## Testing
+
+Run `bundle exec rspec` to run all the tests
+
 ## Tech stack used
 
 - Rails
