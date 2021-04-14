@@ -28,7 +28,7 @@ keystroke. However, this solution is not full-proof. For example: You wanted to
 query `how are you?`, but you type `how are` and wait for one second and then
 you type `you?` to complete the sentence. Now you have two suggestions:
 
-- `how you` and,
+- `how are` and,
 - `how are you?`
 
 As you can see, the first suggestion is pretty baseless as it does not provide
