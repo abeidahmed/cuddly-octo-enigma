@@ -1,5 +1,9 @@
 # Knowledge base app
 
+## Live demo
+
+[Click here](https://live-knowledge.herokuapp.com/)
+
 ## Getting started
 
 - `git clone https://github.com/abeidahmed/cuddly-octo-enigma.git`
