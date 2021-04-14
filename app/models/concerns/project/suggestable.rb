@@ -1,11 +1,11 @@
 class Project
   module Suggestable
     def track_term_for(query)
-      last_suggestion = SearchSuggestion.where(project: self).last
+      last_suggestion = search_suggestions.last
       last_suggestion.destroy if last_suggestion && deletable?(last_suggestion.term, with_string: query)
 
-      matching_terms = SearchSuggestion.where("term iLIKE :query", query: "%#{query}%").where(project: self)
-      SearchSuggestion.create!(term: query, project: self) if matching_terms.count.zero?
+      matching_terms = search_suggestions.where("term iLIKE :query", query: "%#{query}%")
+      search_suggestions.create!(term: query) if matching_terms.count.zero?
     end
 
     private
