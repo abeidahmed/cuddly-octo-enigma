@@ -46,3 +46,9 @@ It also works for typos:
 - `How is my friend?`
 
 The last one is stored to the db in this case.
+
+## Contact
+
+- GitHub: [@abeidahmed](https://github.com/abeidahmed)
+- Twitter: [@iamhawaabi](https://twitter.com/iamhawaabi)
+- LinkedIn: [Abeid Ahmed](https://www.linkedin.com/in/abeidahmed/)
