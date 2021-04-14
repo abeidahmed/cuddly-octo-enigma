@@ -13,8 +13,10 @@ class Project
     def deletable?(string, with_string:)
       return false if string.length == with_string.length
 
-      stripped_string = string.downcase.delete("^a-zA-Z")
-      stripped_with_string = with_string.downcase.delete("^a-zA-Z")
+      regex = "^a-zA-Z"
+
+      stripped_string = string.downcase.delete(regex)
+      stripped_with_string = with_string.downcase.delete(regex)
       stripped_with_string.start_with?(stripped_string)
     end
   end
