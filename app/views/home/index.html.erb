@@ -8,5 +8,13 @@
     <section class="flex justify-center flex-wrap -mx-5 mt-5">
       <%= render @projects %>
     </section>
+    <% unless Current.user %>
+      <section class="mt-4">
+        <h2 class="font-medium text-2xl text-center">Please login to make the most use of the app</h2>
+        <div class="mt-3">
+          <%= link_to "Login", new_session_path, class: "btn btn-primary text-lg" %>
+        </div>
+      </section>
+    <% end %>
   </div>
 </main>
